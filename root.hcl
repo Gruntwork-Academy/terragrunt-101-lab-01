@@ -5,6 +5,8 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 locals {
+  random_suffix = TODO # choose a random string here to avoid naming collisions
+
   # Automatically load account-level variables
   account_vars = read_terragrunt_config(find_in_parent_folders("account.hcl"))
 
@@ -19,8 +21,6 @@ locals {
   account_id   = local.account_vars.locals.aws_account_id
   aws_region   = local.region_vars.locals.aws_region
 
-  # Random suffix for S3 bucket to avoid naming collisions
-  random_suffix = "x7k9m2"
 }
 
 # Generate an AWS provider block
