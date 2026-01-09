@@ -16,9 +16,9 @@ locals {
 }
 
 # Reference the AWS GitHub Pipelines Bootstrap stack from the terragrunt-scale-catalog
-stack {
+stack "bootstrap" {
   source = "github.com/gruntwork-io/terragrunt-scale-catalog//stacks/aws/github/pipelines-bootstrap?ref=v1.5.0"
-
+  path   = "bootstrap"
   # Stack values - customize these for your environment
   values = {
     # TODO: Replace with your GitHub org
@@ -29,6 +29,6 @@ stack {
     github_repo_name = "terragrunt-101-lab-01"
 
     oidc_resource_prefix = "pipelines"
-    deploy_branch = "main"
+    deploy_branch        = "main"
   }
 }
