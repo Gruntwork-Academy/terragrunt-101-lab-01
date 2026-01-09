@@ -21,22 +21,14 @@ stack {
 
   # Stack values - customize these for your environment
   values = {
-    # Required: S3 bucket for OpenTofu/Terraform state
-    # TODO: Replace with your actual state bucket name
-    state_bucket_name = "my-terraform-state-bucket"
-
-    # Required: GitHub organization or username
-    # TODO: Replace with your GitHub org/username
+    # TODO: Replace with your GitHub org
     github_org_name = "my-github-org"
 
-    # Required: GitHub repository name
-    # TODO: Replace with your repository name
-    github_repo_name = "infrastructure-live"
+    state_bucket_name = "my-terraform-state-bucket"
 
-    # Optional: Prefix for IAM resources (default: "pipelines")
+    github_repo_name = "terragrunt-101-lab-01"
+
     oidc_resource_prefix = "pipelines"
-
-    # Optional: Branch allowed to run apply operations (default: "main")
     deploy_branch = "main"
   }
 }

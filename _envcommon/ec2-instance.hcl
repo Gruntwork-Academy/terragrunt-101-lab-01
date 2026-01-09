@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # COMMON TERRAGRUNT CONFIGURATION
-# This is the common component configuration for vpc. The common variables for each environment to
-# deploy vpc are defined here. This configuration will be merged into the environment configuration
+# This is the common component configuration for ec2-instance. The common variables for each environment to
+# deploy ec2-instance are defined here. This configuration will be merged into the environment configuration
 # via an include block.
 # ---------------------------------------------------------------------------------------------------------------------
 
@@ -19,7 +19,6 @@ locals {
 # environments.
 # ---------------------------------------------------------------------------------------------------------------------
 inputs = {
-  vpc_cidr    = "10.0.0.0/16"
-  environment = local.env
+  instance_name = "web-server-${local.env}"
+  instance_type = "t3.micro"
 }
-

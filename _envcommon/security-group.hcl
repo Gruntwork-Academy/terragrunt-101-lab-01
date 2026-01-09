@@ -1,7 +1,7 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # COMMON TERRAGRUNT CONFIGURATION
-# This is the common component configuration for app. The common variables for each environment to
-# deploy app are defined here. This configuration will be merged into the environment configuration
+# This is the common component configuration for security-group. The common variables for each environment to
+# deploy security-group are defined here. This configuration will be merged into the environment configuration
 # via an include block.
 # ---------------------------------------------------------------------------------------------------------------------
 
@@ -11,10 +11,6 @@ locals {
 
   # Extract out common variables for reuse
   env = local.environment_vars.locals.environment
-
-  # Expose the base source URL so different versions of the module can be deployed in different environments.
-  # Using local path for this lab exercise
-  base_source_url = "${dirname(find_in_parent_folders("root.hcl"))}/_modules//app"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -23,8 +19,9 @@ locals {
 # environments.
 # ---------------------------------------------------------------------------------------------------------------------
 inputs = {
-  name          = "app-${local.env}"
-  instance_type = "t3.micro"
-  min_size      = 2
-  max_size      = 4
+  name = "web-sg-${local.env}"
+  ingress_rules = [
+    { port = 80, cidr = "0.0.0.0/0" },
+    { port = 443, cidr = "0.0.0.0/0" },
+  ]
 }
