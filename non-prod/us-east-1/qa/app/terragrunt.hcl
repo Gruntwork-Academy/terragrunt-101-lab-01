@@ -12,12 +12,6 @@ include "envcommon" {
   expose = true
 }
 
-
-# ---------------------------------------------------------------------------------------------------------------------
-# DEPENDENCIES
-# The EC2 instance depends on the VPC for networking and security group for firewall rules.
-# This demonstrates how Terragrunt builds a DAG from dependency declarations.
-# ---------------------------------------------------------------------------------------------------------------------
 dependency "vpc" {
   config_path = "../vpc"
 

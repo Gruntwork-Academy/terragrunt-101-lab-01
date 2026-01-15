@@ -21,9 +21,3 @@ include "envcommon" {
 terraform {
   source = "git::https://github.com/Gruntwork-Academy/terragrunt-101-modules.git//vpc?ref=main"
 }
-
-# ---------------------------------------------------------------------------------------------------------------------
-# VPC is a foundational component with no dependencies on other units.
-# Other units will depend on this VPC.
-# ---------------------------------------------------------------------------------------------------------------------
-
